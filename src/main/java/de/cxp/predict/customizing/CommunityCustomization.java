@@ -16,7 +16,7 @@ import de.cxp.predict.common.QwertzKeyboardDistance;
 import lombok.Getter;
 import lombok.NonNull;
 
-public class CommunityCustomization implements PreDictCustomizing {
+public class CommunityCustomization extends NoopPreDictCustomizing {
 
 	@NonNull
 	@Getter
@@ -45,7 +45,8 @@ public class CommunityCustomization implements PreDictCustomizing {
 		}
 	};
 
-	private double maxEditDistance;
+	// save for internal calculation
+	private final double maxEditDistance;
 	
 	public CommunityCustomization(PreDictSettings settings) {
 		this.settings = settings;
@@ -63,17 +64,6 @@ public class CommunityCustomization implements PreDictCustomizing {
 		return removePattern.matcher(searchWord).replaceAll("").toLowerCase();
 	}
 	
-	@Override
-	public double adjustDistance(String searchWord, String candidate, double distance) {
-		return distance;
-	}
-
-	@Override
-	public double adjustDetailedDistance(String searchWord, String suggestion, double distance, int prefixLength,
-			int suffixLength) {
-		return distance;
-	}
-
 	@Override
 	public double getReplacementDistance(char a, char b) {
 		return keyboardDistance.distance(a, b);
