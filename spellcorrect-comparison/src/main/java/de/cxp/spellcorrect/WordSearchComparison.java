@@ -23,7 +23,9 @@ public class WordSearchComparison {
 
 	private static String dataFile = "src/main/resources/full_test.txt";
 
-	private static boolean printFailures = true;
+	// very verbose!!
+	private static boolean printFailures = false;
+	
 	private static boolean acceptSecondHitAsSuccess = false;
 
 	public static void main(String[] args) throws IOException {
