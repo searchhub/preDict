@@ -14,6 +14,7 @@ import org.apache.commons.csv.CSVRecord;
 
 import com.google.common.collect.ImmutableList;
 
+import de.cxp.spellcorrect.ResourceBackedWordSearch;
 import de.cxp.spellcorrect.WordSearch;
 
 public class TestDataProvider {
@@ -54,6 +55,9 @@ public class TestDataProvider {
 	public int populateWordSearch(WordSearch wordSearch) {
 		for(String word : baseWords) {
 			wordSearch.indexWord(word);
+		}
+		if (wordSearch instanceof ResourceBackedWordSearch) {
+			((ResourceBackedWordSearch)wordSearch).indexingDone();
 		}
 		return baseWords.size();
 	}
