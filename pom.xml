@@ -21,7 +21,6 @@
 		<module>spellcorrect-comparison</module>
 	</modules>
 
-    
 	<build>
 		<plugins>
 			<plugin>

@@ -21,7 +21,6 @@
         <version>0.1.0</version>
 	</parent>
 
-	<groupId>de.cxp</groupId>
 	<artifactId>pre-dict-benchmark</artifactId>
 
 	<name>PreDict Benchmarks</name>

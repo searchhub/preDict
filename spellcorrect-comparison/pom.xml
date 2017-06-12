@@ -10,10 +10,10 @@
         <version>0.1.0</version>
 	</parent>
 
-	<groupId>de.cxp</groupId>
 	<artifactId>spellcorrect-comparison</artifactId>
 
-	<name>Quality Comparison of several spell correction solutions</name>
+	<name>Spellcorrect Comparison</name>
+	<description>Quality Comparison of several spell correction solutions</description>
 
 	<properties>
 		<java.version>1.8</java.version>
