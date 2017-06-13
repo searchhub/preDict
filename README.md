@@ -31,6 +31,6 @@ Based on data we collected for a few months. The test data is attached to the co
 Benchmark                 Accuracy    TP   TN  Fail-Rate   FN   FP
 Lucene based WordCorrect    88,92%  6810  361     11,08%  628  266
 Original SymSpell           88,88%  6847  321     11,12%  591  306
-PreDict CE                  89,37%  6903  305     10,63%  535  322 
-PreDict EE                  94,12%  7303  288      5,88%  135  339
+PreDict CE                  90,08%  6944  321      9,97%  494  306 
+PreDict EE                  94,14%  7302  290      5,86%  136  337
 ```

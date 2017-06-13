@@ -35,11 +35,11 @@
 			<artifactId>pre-dict-library</artifactId>
 			<version>0.1.0</version>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>de.cxp</groupId>
 			<artifactId>pre-dict-ee</artifactId>
 			<version>0.1.0</version>
-		</dependency> -->
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>

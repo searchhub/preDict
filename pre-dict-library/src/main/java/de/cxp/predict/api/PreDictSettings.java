@@ -1,6 +1,5 @@
 package de.cxp.predict.api;
 
-import de.cxp.predict.PreDict;
 import de.cxp.predict.PreDict.AccuracyLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,9 +21,9 @@ public class PreDictSettings {
 
 	private double insertionWeight = 1.01; // 1.00
 
-	private double replaceWeight = 1.0; // 1.20
+	private double replaceWeight = 0.9; // 1.20
 
-	private double transpositionWeight = 1.05; // 1.05
+	private double transpositionWeight = 0.8; // 1.05
 
 	public PreDictSettings editDistanceMax(int editDistanceMax) {
 		setEditDistanceMax(editDistanceMax);

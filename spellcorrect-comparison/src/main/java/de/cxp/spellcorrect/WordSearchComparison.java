@@ -15,13 +15,16 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.lang3.time.StopWatch;
 
-import de.cxp.spellcorrect.lucene.LuceneWordSearch;
+import de.cxp.predict.PreDict.AccuracyLevel;
 import de.cxp.spellcorrect.predict.PreDictFactory;
 import de.cxp.spellcorrect.symspell.SymSpellWordSearch;
 
 public class WordSearchComparison {
 
-	private static String dataFile = "src/main/resources/full_test.txt";
+	private static String fullTestData = "src/main/resources/full_test.txt";
+	private static String testSet1 = "src/main/resources/spell-testset1.txt";
+	private static String testSet2 = "src/main/resources/spell-testset2.txt";
+	private static String testSet3 = "src/main/resources/spell-testset3.txt";
 
 	// very verbose!!
 	private static boolean printFailures = false;
@@ -34,9 +37,9 @@ public class WordSearchComparison {
 				PreDictFactory.getCommunityEdition(),
 				
 				// works only if the dependency is on the classpath
-				// PreDictFactory.getEnterpriseEdition(AccuracyLevel.maximum),
+				PreDictFactory.getEnterpriseEdition(AccuracyLevel.maximum),
 				
-				new LuceneWordSearch(),
+//				new LuceneWordSearch(),
 
 				// This impl. is worse then the Lucene one, but it should be
 				// comparable, since there's also Lucene inside.
@@ -58,7 +61,8 @@ public class WordSearchComparison {
 
 	public static void run(WordSearch wordCorrect) throws IOException {
 
-		CSVParser parser = CSVParser.parse(new File(dataFile), Charset.forName("UTF-8"), CSVFormat.DEFAULT
+		// TODO: use TestDataProvider instead
+		CSVParser parser = CSVParser.parse(new File(fullTestData), Charset.forName("UTF-8"), CSVFormat.DEFAULT
 				.withDelimiter(':'));
 
 		Map<String, String> tpCandidates = new HashMap<>();
