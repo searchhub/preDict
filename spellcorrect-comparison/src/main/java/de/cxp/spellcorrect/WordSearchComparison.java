@@ -15,9 +15,8 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.lang3.time.StopWatch;
 
-import de.cxp.predict.PreDict.AccuracyLevel;
+import de.cxp.spellcorrect.lucene.LuceneWordSearch;
 import de.cxp.spellcorrect.predict.PreDictFactory;
-import de.cxp.spellcorrect.symspell.SymSpellWordSearch;
 
 public class WordSearchComparison {
 
@@ -33,13 +32,13 @@ public class WordSearchComparison {
 
 	public static void main(String[] args) throws IOException {
 		WordSearch[] wordCorrectImplementations = {
-				new SymSpellWordSearch(""),
+//				new SymSpellWordSearch(""),
 				PreDictFactory.getCommunityEdition(),
 				
 				// works only if the dependency is on the classpath
-				PreDictFactory.getEnterpriseEdition(AccuracyLevel.maximum),
+//				PreDictFactory.getEnterpriseEdition(AccuracyLevel.maximum),
 				
-//				new LuceneWordSearch(),
+				new LuceneWordSearch(),
 
 				// This impl. is worse then the Lucene one, but it should be
 				// comparable, since there's also Lucene inside.

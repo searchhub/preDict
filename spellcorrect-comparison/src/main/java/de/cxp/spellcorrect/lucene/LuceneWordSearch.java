@@ -10,15 +10,23 @@ import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.LeafReaderContext;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.search.DoubleValues;
 import org.apache.lucene.search.FuzzyQuery;
 import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.LongValues;
+import org.apache.lucene.search.LongValuesSource;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.search.spell.Dictionary;
 import org.apache.lucene.search.spell.DirectSpellChecker;
 import org.apache.lucene.search.spell.SuggestMode;
 import org.apache.lucene.search.spell.SuggestWord;
+import org.apache.lucene.search.suggest.DocumentValueSourceDictionary;
+import org.apache.lucene.search.suggest.Lookup.LookupResult;
+import org.apache.lucene.search.suggest.analyzing.FuzzySuggester;
 import org.apache.lucene.store.RAMDirectory;
 
 import de.cxp.spellcorrect.ResourceBackedWordSearch;
@@ -34,6 +42,7 @@ public class LuceneWordSearch implements ResourceBackedWordSearch, AutoCloseable
 	private IndexSearcher searcher;
 	private DirectoryReader reader;
 	private DirectSpellChecker spellChecker;
+	private FuzzySuggester fuzzySuggester;
 
 	public LuceneWordSearch() {
 		directory = new RAMDirectory();
@@ -67,6 +76,21 @@ public class LuceneWordSearch implements ResourceBackedWordSearch, AutoCloseable
 			spellChecker.setMinPrefix(0);
 			reader = DirectoryReader.open(writer);
 
+			fuzzySuggester = new FuzzySuggester(directory, "", writer.getAnalyzer());
+			Dictionary dict = new DocumentValueSourceDictionary(reader, WORD_FIELD, new LongValuesSource() {
+				
+				@Override
+				public boolean needsScores() {
+					return false;
+				}
+				
+				@Override
+				public LongValues getValues(LeafReaderContext ctx, DoubleValues scores) throws IOException {
+					return null;
+				}
+			});
+			fuzzySuggester.build(dict);
+			
 			writer.close();
 			searcher = new IndexSearcher(DirectoryReader.open(directory));
 		} catch (IOException e) {
@@ -79,15 +103,23 @@ public class LuceneWordSearch implements ResourceBackedWordSearch, AutoCloseable
 		List<String> foundWords = new ArrayList<>();
 		try {
 			// not much faster but worse results 
-			//foundWords = getUsingSpellcheck(searchQuery);
-			if (foundWords.isEmpty()) {
-				foundWords = getUsingFuzzySearch(searchQuery);
-			}
+//			foundWords = getUsingSpellcheck(searchQuery);
+			foundWords = getUsingFuzzySuggester(searchQuery);
+//			if (foundWords.isEmpty()) {
+//				foundWords = getUsingFuzzySearch(searchQuery);
+//			}
 		} catch (IOException e) {
 			log.error("failed while searching for '" + searchQuery + "'", e);
 		}
 
 		return foundWords;
+	}
+
+	private List<String> getUsingFuzzySuggester(String searchQuery) throws IOException {
+		List<LookupResult> imResult = fuzzySuggester.lookup(searchQuery, false, 2);
+		List<String> result = new ArrayList<>();
+		imResult.forEach(r -> result.add(r.key.toString()));
+		return result;
 	}
 
 	private List<String> getUsingSpellcheck(String searchQuery) throws IOException {
