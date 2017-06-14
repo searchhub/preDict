@@ -17,7 +17,6 @@ Run on Windows10 with a Intel(R) Core(TM) i7-6700 CPU (2.60GHz) with Java(TM) 1.
 Benchmark                                      Mode  Cnt   Score   Error   Units
 OriginalSymSpellBenchmark.testSingleSearch    thrpt  200  68,105 ± 0,977  ops/ms
 PreDictCEBenchmark.testSingleSearch           thrpt  200  82,116 ± 1,149  ops/ms
-PreDictEEBenchmark.testSingleSearch           thrpt  200  30,288 ± 0,394  ops/ms
 LuceneBenchmark.testSingleSearch              thrpt  200   0,749 ± 0,017  ops/ms
 ```
 
@@ -32,5 +31,4 @@ Benchmark                 Accuracy    TP   TN  Fail-Rate   FN   FP
 Lucene based WordCorrect    88,92%  6810  361     11,08%  628  266
 Original SymSpell           88,88%  6847  321     11,12%  591  306
 PreDict CE                  90,08%  6944  321      9,97%  494  306 
-PreDict EE                  94,14%  7302  290      5,86%  136  337
 ```
