@@ -2165,12 +2165,11 @@ mascara:true:maskara,maccaras
 mascha:true:masha
 maschinen:true:maschine
 maserati:true:masarati
-mask:true:maske
+maske:true:mask masc
 massage:true:*massage,massager
 massagegeraete:true:massagegerät
 massagerolle:true:massageroller
-mathematik:true:mathemathik
-matra:true:maxtra,mara,matr,matrat,matura
+mathematik:true:mathemathik matematik
 matratze:true:matratzen,matratzem,matatze,matrate,*matratze,matrtze,mataratze,matratz,matraaaaze,mattratze,matraztze,matratte,?matratze,madratze,matratzte,matraatze,lmatratze,matzratze,*matratzen,matraze,matrazte,matrazen,matrazzen,matrazten,atrazen,msatrazen
 matratzeduodeluxe:true:matratzeduodeluxa,matratzeduodekuxe,matratzenduodeluxe
 matratzenauflage:true:matratzrnauflage,matratzemauflage,matratzenauflagen,matratzdenauflage,matratzeauflage,matratzernauflage,madratzenauflage,matratzenauflag,mattatzenauflage,*matratzenauflage,matrazenauflage
