@@ -15,6 +15,7 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
+import de.cxp.predict.PreDict.AccuracyLevel;
 import de.cxp.spellcorrect.WordSearch;
 import de.cxp.spellcorrect.predict.PreDictFactory;
 import de.cxp.spellcorrect.util.TestDataProvider;
@@ -23,7 +24,7 @@ public class PreDictEEBenchmark {
 
 	@State(Scope.Benchmark)	
 	public static class Data {
-		public WordSearch wordSearch = PreDictFactory.getEnterpriseEdition();
+		public WordSearch wordSearch = PreDictFactory.getEnterpriseEdition(AccuracyLevel.fast);
 		public List<String> queries;
 		
 		@Setup

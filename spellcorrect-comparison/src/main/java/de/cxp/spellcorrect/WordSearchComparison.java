@@ -17,6 +17,7 @@ import org.apache.commons.lang3.time.StopWatch;
 
 import de.cxp.spellcorrect.lucene.LuceneWordSearch;
 import de.cxp.spellcorrect.predict.PreDictFactory;
+import de.cxp.spellcorrect.symspell.SymSpellWordSearch;
 
 public class WordSearchComparison {
 
@@ -32,11 +33,11 @@ public class WordSearchComparison {
 
 	public static void main(String[] args) throws IOException {
 		WordSearch[] wordCorrectImplementations = {
-//				new SymSpellWordSearch(""),
+				new SymSpellWordSearch(""),
 				PreDictFactory.getCommunityEdition(),
 				
 				// works only if the dependency is on the classpath
-//				PreDictFactory.getEnterpriseEdition(AccuracyLevel.maximum),
+				//PreDictFactory.getEnterpriseEdition(AccuracyLevel.fast),
 				
 				new LuceneWordSearch(),
 
