@@ -13,6 +13,30 @@ import de.cxp.predict.api.PreDictSettings;
 import de.cxp.predict.api.SuggestItem;
 import de.cxp.predict.customizing.PreDictCustomizing;
 
+/**
+ * Based on a SymSpell Port
+ * 
+ * Original SymSpell by:
+ * Copyright (C) 2015 Wolf Garbe
+ * Version: 3.0
+ * Author: Wolf Garbe <wolf.garbe@faroo.com>
+ * Maintainer: Wolf Garbe <wolf.garbe@faroo.com>
+ * URL: http://blog.faroo.com/2012/06/07/improved-edit-distance-based-spelling-correction/
+ * Description: http://blog.faroo.com/2012/06/07/improved-edit-distance-based-spelling-correction/
+ * 
+ * Changes by:
+ * Copyright (C) 2017 CXP Commerce Experts
+ * Version: 0.1.0
+ * Author: Andreas Wagner <andreas.wagner@commerce-experts.com>
+ * Maintainer: Rudolf Batt <rudolf.batt@commerce-experts.com>
+ * URL: https://github.com/searchhub/preDict
+ * 
+ * License:
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License, 
+ * version 3.0 (LGPL-3.0) as published by the Free Software Foundation.
+ * http://www.opensource.org/licenses/LGPL-3.0
+ */
 public class PreDict {
 
 	private final PreDictCustomizing customizing;
