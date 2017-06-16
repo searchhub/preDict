@@ -1,4 +1,4 @@
-# preDict
+# preDict (CE) Community Edition
 
 Spell correction library based on [SymSpell](https://github.com/wolfgarbe/symspell) with a few customizations and optimization:
 
