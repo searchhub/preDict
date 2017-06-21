@@ -36,5 +36,5 @@ Lucene (Fuzzy Field-Search)         88,87%  6803  360     11,13%   630  267
 Lucene (FST based FuzzySuggester)   78,96%  5883  481     21,05%  1550  146
 ```
 
-* SearchHub with PreDict EE represents our commercial offering https://www.searchhub.io
+*SearchHub with PreDict EE represents our commercial offering https://www.searchhub.io
 This offering is a search platform independent, AI-powered search query intelligence API containing our concept of controlled precision reduction and PreDict EE (Enterprise Edition) which is capable of handling language agnostic term decomposition 
