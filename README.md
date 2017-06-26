@@ -1,6 +1,6 @@
 # preDict (CE) Community Edition
 
-Spell correction library based on [SymSpell](https://github.com/wolfgarbe/symspell) with a few customizations and optimization:
+Spell correction fuzzy search library based on [SymSpell](https://github.com/wolfgarbe/symspell) with a few customizations and optimization:
 
 * weighted Damerau-Levenshtein edit distance: each operation (delete, insert, swap, replace) can have another influence on the edit distance
 * added some customizing "hooks" that are used to:
