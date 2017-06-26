@@ -29,7 +29,7 @@ Based on data we collected for a few months. The test data is attached to the co
 
 ```
 Benchmark                         Accuracy    TP   TN  Fail-Rate    FN   FP
-SearchHub with PreDict EE *         94,19%  7251  341      5,81%   182  286
+SearchHub with PreDict EE *         96,86%  7452  355      3,14%   140  113
 PreDict CE                          90,04%  6937  320      9,97%   496  307 
 Original SymSpell (Port)            88,87%  6842  321     11,13%   591  306
 Lucene (Fuzzy Field-Search)         88,87%  6803  360     11,13%   630  267
