@@ -2,6 +2,12 @@
 
 Spell correction fuzzy search library based on [SymSpell](https://github.com/wolfgarbe/symspell) with a few customizations and optimization:
 
+The fundament is the Symmetric Delete spelling correction algorithm which reduces the complexity of edit candidate generation and dictionary lookup for a given edit distance. It is six orders of magnitude faster (than the standard approach with deletes + transposes + replaces + inserts) and language independent.
+
+Additionally only deletes are required, no transposes + replaces + inserts. Transposes + replaces + inserts of the input phrase are transformed into deletes of the dictionary term. Replaces and inserts are expensive and language dependent: e.g. Chinese has 70,000 Unicode Han characters!
+
+The main goal was to increase accuracy by adding:
+
 * weighted Damerau-Levenshtein edit distance: each operation (delete, insert, swap, replace) can have another influence on the edit distance
 * added some customizing "hooks" that are used to:
   * add several proximities algorithms (Eudex, Jaro-Winkler, dice coefficient) that are applied for the top-k results. The results are then reordered based on a combined proximity
