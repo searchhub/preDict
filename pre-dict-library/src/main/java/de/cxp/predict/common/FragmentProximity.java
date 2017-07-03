@@ -7,11 +7,6 @@ import java.util.Arrays;
  * advantage of the fact that a bigram of 2 chars can be stored in 1 int, and
  * applies a matching algorithm of O(n*log(n)) instead of O(n*n).
  * 
- * <p>Where most other algorithms incorrectly
- * store the generated bigrams in a set (discarding duplicates), this
- * implementation actually treats multiple occurrences of a bigram as unique.
- * The correctness of this behavior is most easily seen when getting the
- * similarity between "GG" and "GGGGGGGG", which should obviously not be 1.
  * 
  * @param s The first string
  * @param t The second String
