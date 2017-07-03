@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Optimizer version of Jaro+Winkler calculation.
+ * Optimized version of Jaro+Winkler calculation.
  * 
  * @author Andreas Wagner
  */
