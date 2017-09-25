@@ -5,6 +5,7 @@
 Some basics about the spell correction problem
 * [A closer look into the spell correction problem — Part 1](https://medium.com/@searchhub.io/a-closer-look-into-the-spell-correction-problem-part-1-a6795bbf7112)
 * [A closer look into the spell correction problem — Part 2 — introducing preDict](https://medium.com/@searchhub.io/a-closer-look-into-the-spell-correction-problem-part-2-introducing-predict-8993ecab7226)
+* [A closer look into the spell correction problem - Part 3 - the bells and whistles](https://medium.com/@searchhub.io/a-closer-look-into-the-spell-correction-problem-part-3-the-bells-and-whistles-19697a34011b)
 ---
 
 ### Edit Distance
