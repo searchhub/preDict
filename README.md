@@ -1,5 +1,7 @@
 # [search|hub](https://www.searchhub.io) preDict (CE) Community Edition
 
+## search|hub enables blazing fast language independent spell correction at scale
+
 Some basics about the spell correction problem
 * [A closer look into the spell correction problem — Part 1](https://medium.com/@searchhub.io/a-closer-look-into-the-spell-correction-problem-part-1-a6795bbf7112)
 * [A closer look into the spell correction problem — Part 2 — introducing preDict](https://medium.com/@searchhub.io/a-closer-look-into-the-spell-correction-problem-part-2-introducing-predict-8993ecab7226)
