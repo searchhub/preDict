@@ -5,17 +5,23 @@ Some basics about the spell correction problem
 * [A closer look into the spell correction problem — Part 2 — introducing preDict](https://medium.com/@searchhub.io/a-closer-look-into-the-spell-correction-problem-part-2-introducing-predict-8993ecab7226)
 ---
 
-Spell correction fuzzy search library based on [SymSpell](https://github.com/wolfgarbe/symspell) with a few customizations and optimization:
+### Edit Distance
 
-The fundament is the Symmetric Delete spelling correction algorithm which reduces the complexity of edit candidate generation and dictionary lookup for a given edit distance. It is six orders of magnitude faster (than the standard approach with deletes + transposes + replaces + inserts) and language independent.
+preDict is based on the spell correction fuzzy search library [SymSpell](https://github.com/wolfgarbe/symspell) with a few customizations and optimization:
 
-Additionally only deletes are required, no transposes + replaces + inserts. Transposes + replaces + inserts of the input phrase are transformed into deletes of the dictionary term. Replaces and inserts are expensive and language dependent: e.g. Chinese has 70,000 Unicode Han characters!
+* The fundamental beauty for SymSpell is the Symmetric Delete spelling correction algorithm which reduces the complexity of edit candidate generation and dictionary lookup for a given edit distance. It is six orders of magnitude faster (than the standard approach with deletes + transposes + replaces + inserts) and language independent.
 
-The main goal was to increase accuracy by adding:
+* Additionally only deletes are required, no transposes + replaces + inserts. Transposes + replaces + inserts of the input phrase are transformed into deletes of the dictionary term. Replaces and inserts are expensive and language dependent: e.g. Chinese has 70,000 Unicode Han characters!
 
-* weighted Damerau-Levenshtein edit distance: each operation (delete, insert, swap, replace) can have another influence on the edit distance
-* added some customizing "hooks" that are used to:
-  * add several proximities algorithms (Eudex, Jaro-Winkler, dice coefficient) that are applied for the top-k results. The results are then reordered based on a combined proximity
+### preDict customizations
+
+Our main goal was to increase accuracy whilst maintaining the increabible speed by adding:
+
+* We replaced the Damerau-Levenshtein implementation with a weighted Damerau-Levenshtein implementation: where each operation (delete, insert, swap, replace) can have different edit weights.
+* We added some customizing "hooks" that are used to rerank the top-k results (candidate list). The results are then reordered based on a combined proximity :
+  * added a phonetic proximity algorithm (Eudex)
+  * added a prefix proximity algorithm (Jaro-Winkler) 
+  * added a fragment proximity algorithm (dice coefficient)   
   * added keyboard-distance to get a dynamic replacement weight (since letters close to each other are more likely to be replaced)
   * do some query normalization before search
 
