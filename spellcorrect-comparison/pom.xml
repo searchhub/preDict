@@ -35,11 +35,6 @@
 			<artifactId>pre-dict-library</artifactId>
 			<version>0.1.0</version>
 		</dependency>
-		<dependency>
-			<groupId>de.cxp</groupId>
-			<artifactId>pre-dict-ee</artifactId>
-			<version>0.1.0</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -75,6 +70,19 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>enterprise-edition</id>
+			<dependencies>
+				<dependency>
+					<groupId>de.cxp</groupId>
+					<artifactId>pre-dict-ee</artifactId>
+					<version>0.1.0</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>
