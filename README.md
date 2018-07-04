@@ -5,7 +5,7 @@
 Some basics about the spell correction problem
 * [A closer look into the spell correction problem — Part 1](https://medium.com/@searchhub.io/a-closer-look-into-the-spell-correction-problem-part-1-a6795bbf7112)
 * [A closer look into the spell correction problem — Part 2 — introducing preDict](https://medium.com/@searchhub.io/a-closer-look-into-the-spell-correction-problem-part-2-introducing-predict-8993ecab7226)
-* [A closer look into the spell correction problem - Part 3 - the bells and whistles](https://medium.com/@searchhub.io/a-closer-look-into-the-spell-correction-problem-part-3-the-bells-and-whistles-19697a34011b)
+* [A closer look into the spell correction problem - Part 3 — the bells and whistles](https://medium.com/@searchhub.io/a-closer-look-into-the-spell-correction-problem-part-3-the-bells-and-whistles-19697a34011b)
 ---
 
 ### Edit Distance
@@ -35,7 +35,7 @@ Run on Windows10 with a Intel(R) Core(TM) i7-6700 CPU (2.60GHz) with Java(TM) 1.
 
 ```
 Benchmark                             Mode  Cnt   Score   Error   Units
-SearchHub with PreDict EE *          thrpt  200  86,019 ± 1,127  ops/ms
+SearchHub with PreDict EE *          thrpt  200  96,019 ± 1,007  ops/ms
 PreDict CE                           thrpt  200  82,116 ± 1,149  ops/ms
 Original SymSpell (Port)             thrpt  200  68,105 ± 0,977  ops/ms
 Lucene (FST Based FuzzySuggester)    thrpt    5  17,588 ± 0,690  ops/ms
@@ -49,7 +49,7 @@ Based on data we collected for a few months. The test data is attached to the co
 
 ```
 Benchmark                         Accuracy    TP   TN  Fail-Rate    FN   FP
-SearchHub with PreDict EE *         96,86%  7452  355      3,14%   140  113
+SearchHub with PreDict EE *         98,87%  7452  355      1,13%    52   37
 PreDict CE                          90,04%  6937  320      9,96%   496  307 
 Original SymSpell (Port)            88,87%  6842  321     11,13%   591  306
 Lucene (Fuzzy Field-Search)         88,87%  6803  360     11,13%   630  267
@@ -57,4 +57,4 @@ Lucene (FST based FuzzySuggester)   78,96%  5883  481     21,04%  1550  146
 ```
 
 *SearchHub with PreDict EE represents our commercial offering https://www.searchhub.io
-This offering is a search platform independent, AI-powered search query intelligence API containing our concept of controlled precision reduction and PreDict EE (Enterprise Edition) which is capable of handling language agnostic term decomposition 
+This offering is a search platform independent, AI-powered search query intelligence API containing our concept of controlled precision reduction and PreDict EE (Enterprise Edition) which is capable of handling language agnostic term decomposition and disambiguation. 
